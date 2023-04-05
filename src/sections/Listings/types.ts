@@ -10,3 +10,6 @@ interface Listing {
     rating: number;
 }
 
+export interface ListingsData {
+    listings: Listing[]
+}
