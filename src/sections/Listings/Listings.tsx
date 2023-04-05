@@ -1,5 +1,7 @@
 import React from "react";
 
-export const Listings = () => {
-    return <h2>TinyHouse Listings</h2>
+export const Listings = (props: { title: string }) => {
+    return <h2>{props.title}</h2>
 };
+
+
