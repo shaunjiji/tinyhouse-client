@@ -1,7 +1,10 @@
 import React from "react";
 
-export const Listings = (props: { title: string }) => {
-    return <h2>{props.title}</h2>
-};
+interface Props {
+    title: string;
+}
 
+export const Listings = ( { title }: Props ) => {
+    return <h2>{title}</h2>
+};
 
