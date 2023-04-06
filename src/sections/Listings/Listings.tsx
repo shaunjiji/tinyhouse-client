@@ -38,20 +38,20 @@ export const Listings = ( { title }: Props ) => {
         setListings(data.listings);
     }
 
-    const deleteListing = async () => {
-        const { data } = await server.fetch<DeleteListingData, DeleteListingVariables>({
+    const deleteListing = async (id: string) => {
+        await server.fetch<DeleteListingData, DeleteListingVariables>({
             query: DELETE_LISTING,
             variables: {
-                id: '64141ce7d8979c09906377b5'
+                id
             }
         });
-        console.log(data);
+        fetchListings();
     }
 
     const listingsList = listings ? ( 
     <ul> 
         {listings.map(listing => {
-        return <li key={listing.id}>{listing.title}</li>
+        return <li key={listing.id}>{listing.title}<button onClick={() => deleteListing(listing.id)}>Delete</button></li>
         })}
     </ul>
     ) : null;
@@ -60,7 +60,6 @@ export const Listings = ( { title }: Props ) => {
         <h2>{title}</h2>
         {listingsList}
         <button onClick={fetchListings}>Query Listings!</button>
-        <button onClick={deleteListing}>Delete a Listing!</button>
     </div>);
 };
 
