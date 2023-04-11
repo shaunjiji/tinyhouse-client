@@ -11,7 +11,7 @@ type MutationTuple<TData, TVariables> = [(variables?: TVariables | undefined) =>
 
 export const useMutation = <TData = any, TVariables = any>(
     query: string
-): MutationTuple<TData, TVariables>=> {
+): MutationTuple<TData, TVariables> => {
     const [state, setState] = useState<State<TData>>({
         data: null,
         loading: false,
