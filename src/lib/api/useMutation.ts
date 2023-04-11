@@ -7,9 +7,11 @@ interface State<TData>{
     error: boolean;
 }
 
+type MutationTuple<TData, TVariables> = [(variables?: TVariables | undefined) => Promise<void>, State<TData>]
+
 export const useMutation = <TData = any, TVariables = any>(
     query: string
-) => {
+): MutationTuple<TData, TVariables>=> {
     const [state, setState] = useState<State<TData>>({
         data: null,
         loading: false,
