@@ -44,7 +44,7 @@ export const Listings = ( { title }: Props ) => {
     const listingsList = listings ? ( 
     <ul> 
         {listings.map(listing => {
-        return <li key={listing.id}>{listing.title}<button onClick={() => deleteListing(listing.id)}>Delete</button></li>
+        return <li key={listing.id}>{listing.title}<button onClick={() => handleDeleteListing(listing.id)}>Delete</button></li>
         })}
     </ul>
     ) : null;

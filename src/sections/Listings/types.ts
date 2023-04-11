@@ -8,7 +8,7 @@ export interface Listing {
     numOfBeds: number;
     numOfBaths: number;
     rating: number;
-}
+} 
 
 export interface ListingsData {
     listings: Listing[]
