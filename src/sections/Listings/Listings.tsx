@@ -1,5 +1,5 @@
 import React from "react";
-import { server, useQuery, useMutation } from "../../lib/api"
+import { useQuery, useMutation } from "../../lib/api"
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
 
 const LISTINGS = `
@@ -35,14 +35,9 @@ export const Listings = ( { title }: Props ) => {
     const [deleteListing, { loading: deleteListingLoading, error: deleteListingError }] = useMutation<DeleteListingData, DeleteListingVariables>(DELETE_LISTING);
 
     const handleDeleteListing = async (id: string) => {
-        await server.fetch<DeleteListingData, DeleteListingVariables>({
-            query: DELETE_LISTING,
-            variables: {
-                id
-            }
-        });
+        await deleteListing({ id });
         refetch();
-    }
+    };
     
     const listings = data ? data.listings : null;
 
@@ -62,9 +57,12 @@ export const Listings = ( { title }: Props ) => {
         return <h2>Loading...</h2>
     }
 
+    const deleteListingLoadingMessage = deleteListingLoading ? <h4> Deleting in progress... </h4> : null;
+    
     return ( <div>
         <h2>{title}</h2>
         {listingsList}
+        {deleteListingLoadingMessage}
     </div>);
 };
 
