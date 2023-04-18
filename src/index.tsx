@@ -13,7 +13,7 @@ const client = new ApolloClient({
 
 render(
 <ApolloProvider client={client}>
-<Listings title="Tinyhouse Listings"/>
+    <Listings title="Tinyhouse Listings"/>
 </ApolloProvider>, document.getElementById("root")
 );
 
