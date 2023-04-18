@@ -1,7 +1,7 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
-import { Avatar, Button , List} from "antd";
+import { Avatar, Button , List, Spin} from "antd";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
 import '/Users/shaunjiji/Documents/Tinyhouse/tinyhouse_v1/tinyhouse-client/src/styles/Listings.css';
 
@@ -70,17 +70,18 @@ export const Listings = ( { title }: Props ) => {
         return <h2>Loading...</h2>
     }
 
-    const deleteListingLoadingMessage = deleteListingLoading ? <h4> Deleting in progress... </h4> : null;
     
     const deleteListingLoadingErrorMessage = deleteListingError ? ( <h4> Uh oh! Something went wrong with deleting - please try again later  </h4>) : null;
     
 
 
-    return ( <div className="listings">
-        <h2>{title}</h2>
-        {listingsList}
-        {deleteListingLoadingMessage}
-        {deleteListingLoadingErrorMessage}
-    </div>);
+    return ( 
+        <div className="listings">
+            <Spin spinning={deleteListingLoading}>
+                <h2>{title}</h2>
+                {listingsList}
+                {deleteListingLoadingErrorMessage}
+            </Spin>
+        </div>);
 };
 
