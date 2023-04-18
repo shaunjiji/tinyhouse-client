@@ -3,7 +3,9 @@ import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
 import { Avatar, Button , List, Spin} from "antd";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
+import (ListingsSkeleton) from "./components";
 import '/Users/shaunjiji/Documents/Tinyhouse/tinyhouse_v1/tinyhouse-client/src/styles/Listings.css';
+import { ListingsSkeleton } from "./components";
 
 
 const LISTINGS = gql`
@@ -67,7 +69,7 @@ export const Listings = ( { title }: Props ) => {
     }
 
     if (loading){
-        return <h2>Loading...</h2>
+        return <h2><ListingsSkeleton/>/h2>
     }
 
     
