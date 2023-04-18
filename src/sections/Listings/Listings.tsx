@@ -1,9 +1,7 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
-import Avatar from "antd/es/avatar/avatar";
-import { Button } from "antd";
-import List from "antd/es/list";
+import { Avatar, Button , List} from "antd";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
 import '/Users/shaunjiji/Documents/Tinyhouse/tinyhouse_v1/tinyhouse-client/src/styles/Listings.css';
 
