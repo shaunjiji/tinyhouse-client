@@ -1,6 +1,7 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
+import List from "antd/es/list";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
 
 const LISTINGS = gql`
@@ -42,13 +43,8 @@ export const Listings = ( { title }: Props ) => {
     
     const listings = data ? data.listings : null;
 
-    const listingsList = listings ? ( 
-    <ul> 
-        {listings.map(listing => {
-        return <li key={listing.id}>{listing.title}<button onClick={() => handleDeleteListing(listing.id)}>Delete</button></li>
-        })}
-    </ul>
-    ) : null;
+    const listingsList = listings ? ( <List itemLayout="horizontal" dataSource={listings} renderItem={(listing) => (<List.Item> <List.Item.Meta title = {listing.title}/></List.Item>)} />) : null
+   
     
     if (error){
         return <h2>Uh oh! Something went wrong - please try again later</h2>
