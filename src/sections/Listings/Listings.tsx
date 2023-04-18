@@ -1,8 +1,12 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
+import Avatar from "antd/es/avatar/avatar";
+import { Button } from "antd";
 import List from "antd/es/list";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
+import '/Users/shaunjiji/Documents/Tinyhouse/tinyhouse_v1/tinyhouse-client/src/styles/Listings.css';
+
 
 const LISTINGS = gql`
     query Listings {
@@ -43,7 +47,21 @@ export const Listings = ( { title }: Props ) => {
     
     const listings = data ? data.listings : null;
 
-    const listingsList = listings ? ( <List itemLayout="horizontal" dataSource={listings} renderItem={(listing) => (<List.Item> <List.Item.Meta title = {listing.title}/></List.Item>)} />) : null
+    const listingsList = listings ? ( <List 
+        itemLayout="horizontal" 
+        dataSource={listings} 
+        renderItem={(listing) => (
+        <List.Item actions={[<Button type="primary" onClick={() => handleDeleteListing(listing.id)}>Delete</Button>]}> 
+            <List.Item.Meta 
+            title={listing.title} 
+            description={listing.address} 
+            avatar={
+                <Avatar 
+                    src={listing.image} 
+                    shape="square" 
+                    size={48}/>}
+                />
+        </List.Item>)} />) : null
    
     
     if (error){
@@ -60,7 +78,7 @@ export const Listings = ( { title }: Props ) => {
     
 
 
-    return ( <div>
+    return ( <div className="listings">
         <h2>{title}</h2>
         {listingsList}
         {deleteListingLoadingMessage}
