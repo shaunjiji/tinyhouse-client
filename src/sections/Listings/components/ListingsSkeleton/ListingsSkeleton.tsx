@@ -5,8 +5,13 @@ interface Props {
     title: string;
 }
 
-export const ListingsSkeleton = () => {
-    return <Skeleton />;
+export const ListingsSkeleton = ({title}: Props) => {
+    return (
+        <div>
+            <h2>{title}</h2>
+            <Skeleton />
+        </div>
+    );
 }
 
 
