@@ -64,8 +64,12 @@ export const Listings = ( { title }: Props ) => {
         </List.Item>)} />) : null
    
     
-    if (error){
-        return <h2>Uh oh! Something went wrong - please try again later</h2>
+    if (true){
+        return (
+            <div className="listings">
+                <ListingsSkeleton title={title} error/>
+            </div>
+        );
     }
 
 

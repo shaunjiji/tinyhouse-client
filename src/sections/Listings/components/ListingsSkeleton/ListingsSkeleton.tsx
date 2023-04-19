@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Skeleton } from "antd";
+import { Alert, Divider, Skeleton } from "antd";
 import './styles/ListingsSkeleton.css'
 
 interface Props {
@@ -8,8 +8,13 @@ interface Props {
 }
 
 export const ListingsSkeleton = ({title, error = false }: Props) => {
+    const errorAlert = error ? (
+        <Alert type="error" message="Uh oh! Something went wrong - please try again later :(
+        "/>
+    ) : null;
     return (
         <div className="listings-skeleton">
+            {errorAlert}
             <h2>{title}</h2>
             <Skeleton paragraph={{ rows: 1}}/>
             <Divider/>
