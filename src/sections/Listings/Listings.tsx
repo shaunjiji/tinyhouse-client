@@ -69,7 +69,7 @@ export const Listings = ( { title }: Props ) => {
     }
 
 
-    if (true){
+    if (loading){
         return (
             <div className="listings">
                 <ListingsSkeleton title={title}/>

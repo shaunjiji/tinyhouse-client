@@ -4,9 +4,10 @@ import './styles/ListingsSkeleton.css'
 
 interface Props {
     title: string;
+    error?: boolean;
 }
 
-export const ListingsSkeleton = ({title}: Props) => {
+export const ListingsSkeleton = ({title, error = false }: Props) => {
     return (
         <div className="listings-skeleton">
             <h2>{title}</h2>
