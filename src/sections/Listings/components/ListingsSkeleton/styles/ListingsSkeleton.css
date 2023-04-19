@@ -9,3 +9,7 @@
 :where(.css-dev-only-do-not-override-htwhyh).ant-skeleton .ant-skeleton-content .ant-skeleton-title +.ant-skeleton-paragraph {
     margin-top: 12px;
 }
+
+.listings-skeleton .listings-skeleton__alert{
+    margin-bottom: 20px;
+}

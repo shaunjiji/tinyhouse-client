@@ -9,7 +9,7 @@ interface Props {
 
 export const ListingsSkeleton = ({title, error = false }: Props) => {
     const errorAlert = error ? (
-        <Alert type="error" message="Uh oh! Something went wrong - please try again later :(
+        <Alert className="listings-skeleton__alert" type="error" message="Uh oh! Something went wrong - please try again later :(
         "/>
     ) : null;
     return (
