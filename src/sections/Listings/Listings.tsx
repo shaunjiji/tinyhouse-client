@@ -64,7 +64,7 @@ export const Listings = ( { title }: Props ) => {
         </List.Item>)} />) : null
    
     
-    if (true){
+    if (error){
         return (
             <div className="listings">
                 <ListingsSkeleton title={title} error/>
