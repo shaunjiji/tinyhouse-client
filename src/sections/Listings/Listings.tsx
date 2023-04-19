@@ -3,9 +3,9 @@ import { gql } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client"
 import { Avatar, Button , List, Spin} from "antd";
 import { ListingsData, DeleteListingData, DeleteListingVariables } from "./types";
-import (ListingsSkeleton) from "./components";
+import {ListingsSkeleton} from "./components";
 import '/Users/shaunjiji/Documents/Tinyhouse/tinyhouse_v1/tinyhouse-client/src/styles/Listings.css';
-import { ListingsSkeleton } from "./components";
+
 
 
 const LISTINGS = gql`
@@ -68,8 +68,13 @@ export const Listings = ( { title }: Props ) => {
         return <h2>Uh oh! Something went wrong - please try again later</h2>
     }
 
-    if (loading){
-        return <h2><ListingsSkeleton/>/h2>
+
+    if (true){
+        return (
+            <div className="listings">
+                <ListingsSkeleton/>
+            </div>
+        );
     }
 
     
