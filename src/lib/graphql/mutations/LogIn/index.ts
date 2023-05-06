@@ -3,7 +3,7 @@ import { gql } from "apollo-server-express";
 export const LOG_IN = gql `
    mutation LogIn($input: LogInInput) {
         logIn(input: $input){
-            id
+            id  
             token
             avatar
             hasWallet
